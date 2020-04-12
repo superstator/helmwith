@@ -1,5 +1,7 @@
 deployments:
 - id: 0
   host: somehost
+- id: 3
+  host: somehost
 - id: 10
   host: someotherhost
