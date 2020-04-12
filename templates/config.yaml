@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: some-config
+data:
+  default.conf: |
+    deployments:
+    {{- range .Values.deployments }}
+    - id: {{ .id }}
+      host: {{ .host }}
+      size: {{- with .id | int }}
+        {{- if gt . 5 }} large
+        {{- else }} smol
+        {{- end }}
+      {{- end }}
+    {{- end }}
+    
